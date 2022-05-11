@@ -13,11 +13,6 @@ async function infect(ns, host, scriptName, target) {
 
 	let hosts = ns.scan(host);
 
-	// Make sure the script exists on this server
-	if(!ns.fileExists(scriptName)) {
-		await ns.scp(scriptName, "home", ns.getHostname());
-	}
-
 	// Try to infect scanned servers
 	for (let i = 0; i < hosts.length; i++) {
 		// Check if hackable
